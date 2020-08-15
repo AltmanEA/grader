@@ -1,0 +1,19 @@
+@startuml
+
+    left to right direction
+
+    Person <|--  Tutor   
+    Person <|--  Student
+    Person <|-- Admin
+ 
+    rectangle {
+        Tutor -- ("Set task")
+        Tutor -- ("Set grade")
+        Tutor -- ("Read grades")
+        Student -- ("Read grades")
+        Admin -- ("Set Person")
+        Admin -- ("Set Course")
+        Admin -- ("Set Course Person")
+    }
+
+@enduml

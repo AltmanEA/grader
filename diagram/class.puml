@@ -1,0 +1,58 @@
+@startuml
+    hide circle
+    skinparam minClassWidth 170
+
+    together {
+        class Task
+        class Student
+        class Tutor
+    }
+
+    class  Course {
+        name: String
+        tutors: Tutor[]
+        students: Student[]
+        tasks : Task[]
+    }
+    Course "*" <-- "*" Tutor
+    Course "*" <-- "*" Student
+    Course "1" <-- "*" Task
+
+    class Person{
+        name: String
+        courses: Course[]
+    }
+
+    class Tutor extends Person {
+        post: String    
+    }
+
+    class Student extends Person {
+        group: String
+    }
+
+    Student "1" <-- "*" Grade
+
+    class Type {
+        name : String
+        shortName : String
+    }
+
+    class Task {
+        type : Type
+        descripton: String
+        shortName : String
+        maxValue : Integer
+        deadline : Date
+        grades: Grade[]
+    }
+    Task <-- TaskType
+    Task "1" <-- "*" Grade
+
+    class Grade {
+        value : Integer
+        date : Date
+        student: Student
+    }
+
+@enduml

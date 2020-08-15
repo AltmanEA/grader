@@ -1,0 +1,10 @@
+@startuml
+
+actor Tutor
+collections CourseList
+
+Tutor -> CourseList : get course
+Tutor -> Course : get tasks
+Tutor -> Task : set grade
+
+@enduml
